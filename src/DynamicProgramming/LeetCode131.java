@@ -15,7 +15,7 @@ public class LeetCode131 {
         // 首先通过动态规划进行预处理，得到字符串的回文动态规划矩阵
         boolean[][] dp = isPalindrome(s);
         // 然后通过回溯法对动态规划矩阵进行回溯搜索，取到所有可能的情况
-        backtrack(0, s, new ArrayList<String>(), res, dp);
+        backtrack(0, s, new ArrayList<>(), res, dp);
         return res;
     }
 
