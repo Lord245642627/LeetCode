@@ -34,7 +34,6 @@ public class LeetCode4 {
         } else {
             return getKth(nums1, i + 1, end1, nums2, start2, end2, k - (i - start1 + 1));
         }
-
     }
 
     public static void main(String[] args) {
