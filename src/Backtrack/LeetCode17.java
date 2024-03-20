@@ -9,6 +9,7 @@ import java.util.Map;
  * @author Lord Camelot
  * @date 2024/3/20
  * @description LeetCode17 电话号码的字母组合
+ * 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。数字到字母的映射与电话按键相同
  */
 public class LeetCode17 {
     public List<String> letterCombinations(String digits) {
