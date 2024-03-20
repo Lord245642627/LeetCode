@@ -1,4 +1,4 @@
-package DepthFirstSearch;
+package Backtrack;
 
 import utils.TreeNode;
 import java.util.LinkedList;

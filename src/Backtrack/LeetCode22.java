@@ -1,4 +1,4 @@
-package DepthFirstSearch;
+package Backtrack;
 
 import java.util.ArrayList;
 import java.util.List;
