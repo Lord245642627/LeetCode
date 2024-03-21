@@ -2,8 +2,9 @@ package BinarySearch;
 
 /**
  * @author Lord Camelot
- * @date 2024/3/12
+ * @date 2024/3/20
  * @description LeetCode4 寻找两个正序数组的中位数
+ * 给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。算法的时间复杂度应该为 O(log (m+n)) 。
  */
 public class LeetCode4 {
 
@@ -11,7 +12,7 @@ public class LeetCode4 {
         int len1 = nums1.length, len2 = nums2.length;
         // 将偶数和奇数的情况合并，如果是奇数，会求两次同样的 k
         int left = (len1 + len2 + 1) / 2;
-        int right = (len1 + len2 + 2) / 2 ;
+        int right = (len1 + len2 + 2) / 2;
         return (getKth(nums1, 0, len1 - 1, nums2, 0, len2 - 1, left) + getKth(nums1, 0, len1 - 1, nums2, 0, len2 - 1, right)) * 0.5;
     }
 
