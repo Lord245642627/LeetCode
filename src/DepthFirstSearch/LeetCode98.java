@@ -62,6 +62,6 @@ public class LeetCode98 {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(1);
-        System.out.println(new LeetCode98().inorder2(root));;
+        System.out.println(new LeetCode98().inorder2(root));
     }
 }
