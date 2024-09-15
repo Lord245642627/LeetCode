@@ -17,7 +17,7 @@ public class LeetCode17 {
         if (digits.isEmpty()) {
             return res;
         }
-        Map<Character, String> map = new HashMap<Character, String>() {{
+        Map<Character, String> map = new HashMap<>() {{
             put('2', "abc");
             put('3', "def");
             put('4', "ghi");
@@ -28,7 +28,7 @@ public class LeetCode17 {
             put('9', "wxyz");
         }};
         char[] charArray = digits.toCharArray();
-        backtrack(charArray, map, 0,  new StringBuffer(), res);
+        backtrack(charArray, map, 0, new StringBuffer(), res);
         return res;
     }
 
