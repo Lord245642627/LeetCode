@@ -8,5 +8,7 @@ public class Test {
         list.forEach(System.out::println);
         String str = "";
         str.isBlank();
+        Integer[] intArray = new Integer[10];
+        intArray[1] = 10;
     }
 }
