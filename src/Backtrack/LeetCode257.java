@@ -14,23 +14,36 @@ import java.util.List;
  */
 public class LeetCode257 {
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> paths = new ArrayList<String>();
-        constructPaths(root, "", paths);
-        return paths;
+        List<String> res = new ArrayList<>();
+        dfs(root, res, new ArrayList<Integer>());
+        return res;
     }
 
-    public void constructPaths(TreeNode root, String path, List<String> paths) {
-        if (root != null) {
-            StringBuffer pathSB = new StringBuffer(path);
-            pathSB.append(Integer.toString(root.val));
-            if (root.left == null && root.right == null) {  // 当前节点是叶子节点
-                paths.add(pathSB.toString());  // 把路径加入到答案中
-            } else {
-                pathSB.append("->");  // 当前节点不是叶子节点，继续递归遍历
-                constructPaths(root.left, pathSB.toString(), paths);
-                constructPaths(root.right, pathSB.toString(), paths);
+    private void dfs(TreeNode node, List<String> res, List<Integer> list) {
+        list.add(node.val);
+        if (node.left == null && node.right == null) {
+            res.add(transferListToStr(list));
+        } else {
+            if (node.left != null) {
+                dfs(node.left, res, list);
+            }
+            if (node.right != null) {
+                dfs(node.right, res, list);
             }
         }
+        list.remove(list.size() - 1);
+    }
+
+    private String transferListToStr(List<Integer> list) {
+        StringBuilder sb = new StringBuilder();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            sb.append(Integer.toString(list.get(i)));
+            if (i < size - 1) {
+                sb.append("->");
+            }
+        }
+        return sb.toString();
     }
 
     public static void main(String[] args) {
