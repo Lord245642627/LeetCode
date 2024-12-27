@@ -17,4 +17,9 @@ public class LeetCode198 {
         }
         return dp[nums.length];
     }
+
+    public static void main(String[] args) {
+        LeetCode198 leetcode198 = new LeetCode198();
+        System.out.println(leetcode198.rob(new int[]{1,2,3,1}));
+    }
 }
