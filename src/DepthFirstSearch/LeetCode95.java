@@ -1,4 +1,4 @@
-package Backtrack;
+package DepthFirstSearch;
 
 import utils.TreeNode;
 import java.util.LinkedList;
@@ -14,10 +14,10 @@ public class LeetCode95 {
         if (n == 0) {
             return new LinkedList<TreeNode>();
         }
-        return backtrack(1, n);
+        return dfs(1, n);
     }
 
-    private List<TreeNode> backtrack(int start, int end) {
+    private List<TreeNode> dfs(int start, int end) {
         List<TreeNode> allTrees = new LinkedList<>();
         if (start > end) {
             allTrees.add(null);
@@ -26,9 +26,9 @@ public class LeetCode95 {
         // 枚举可行根节点
         for (int i = start; i <= end; i++) {
             // 获得所有可行的左子树集合
-            List<TreeNode> leftTrees = backtrack(start, i - 1);
+            List<TreeNode> leftTrees = dfs(start, i - 1);
             // 获得所有可行的右子树集合
-            List<TreeNode> rightTrees = backtrack(i + 1, end);
+            List<TreeNode> rightTrees = dfs(i + 1, end);
             // 从左子树集合中选出一棵左子树，从右子树集合中选出一棵右子树，拼接到根节点上
             for (TreeNode leftTree : leftTrees) {
                 for (TreeNode rightTree : rightTrees) {

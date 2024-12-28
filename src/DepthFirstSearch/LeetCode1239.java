@@ -1,4 +1,4 @@
-package Backtrack;
+package DepthFirstSearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,19 +20,19 @@ public class LeetCode1239 {
                 list.add(s);
             }
         }
-        backtrack(list, 0, "");
+        dfs(list, 0, "");
         return res;
     }
 
-    private void backtrack(List<String> list, int index, String s) {
+    private void dfs(List<String> list, int index, String s) {
         if (index == list.size()) {
             res = Math.max(res, s.length());
             return;
         }
-        backtrack(list, index + 1, s);
+        dfs(list, index + 1, s);
         String str = s + list.get(index);
         if (!isContain(str)) {
-            backtrack(list, index + 1, str);
+            dfs(list, index + 1, str);
         }
     }
 

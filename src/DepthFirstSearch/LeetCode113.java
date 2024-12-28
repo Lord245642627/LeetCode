@@ -1,4 +1,4 @@
-package Backtrack;
+package DepthFirstSearch;
 
 import utils.TreeNode;
 

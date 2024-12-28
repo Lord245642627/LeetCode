@@ -1,4 +1,4 @@
-package Backtrack;
+package DepthFirstSearch;
 
 import java.util.Arrays;
 
@@ -23,11 +23,11 @@ public class LeetCode2212 {
     public int[] maximumBobPoints(int numArrows, int[] aliceArrows) {
         // return binaryEnumeration(numArrows, aliceArrows);
         res = new int[12];
-        backtrack(numArrows, aliceArrows, 0, 0, new int[12]);
+        dfs(numArrows, aliceArrows, 0, 0, new int[12]);
         return res;
     }
 
-    private void backtrack(int numArrows, int[] aliceArrows, int index, int score, int[] bobArrows) {
+    private void dfs(int numArrows, int[] aliceArrows, int index, int score, int[] bobArrows) {
         if (index == aliceArrows.length) {
             if (score > maxScore) {
                 maxScore = score;
@@ -37,12 +37,12 @@ public class LeetCode2212 {
             }
             return;
         }
-        backtrack(numArrows, aliceArrows, index + 1, score, bobArrows);
+        dfs(numArrows, aliceArrows, index + 1, score, bobArrows);
         if (numArrows > aliceArrows[index]) {
             score += index;
             numArrows -= (aliceArrows[index] + 1);
             bobArrows[index] += (aliceArrows[index] + 1);
-            backtrack(numArrows, aliceArrows, index + 1, score, bobArrows);
+            dfs(numArrows, aliceArrows, index + 1, score, bobArrows);
             score -= index;
             numArrows += (aliceArrows[index] + 1);
             bobArrows[index] = 0;

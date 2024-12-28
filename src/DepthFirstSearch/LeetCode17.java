@@ -1,4 +1,4 @@
-package Backtrack;
+package DepthFirstSearch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,11 +28,11 @@ public class LeetCode17 {
             put('9', "wxyz");
         }};
         char[] charArray = digits.toCharArray();
-        backtrack(charArray, map, 0, new StringBuffer(), res);
+        dfs(charArray, map, 0, new StringBuffer(), res);
         return res;
     }
 
-    private void backtrack(char[] charArray, Map<Character, String> map, int index, StringBuffer sb, List<String> res) {
+    private void dfs(char[] charArray, Map<Character, String> map, int index, StringBuffer sb, List<String> res) {
         if (index == charArray.length) {
             res.add(sb.toString());
             return;
@@ -40,7 +40,7 @@ public class LeetCode17 {
         String s = map.get(charArray[index]);
         for (int i = 0; i < s.length(); i++) {
             sb.append(s.charAt(i));
-            backtrack(charArray, map, index + 1, sb, res);
+            dfs(charArray, map, index + 1, sb, res);
             sb.deleteCharAt(sb.length() - 1);
         }
     }

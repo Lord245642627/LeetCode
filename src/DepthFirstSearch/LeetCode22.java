@@ -1,4 +1,4 @@
-package Backtrack;
+package DepthFirstSearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,24 +12,24 @@ import java.util.List;
 public class LeetCode22 {
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
-        backtrack(res, new StringBuffer(), 0, 0, n);
+        dfs(res, new StringBuffer(), 0, 0, n);
         return res;
 
     }
 
-    public void backtrack(List<String> res, StringBuffer sb, int left, int right, int n) {
+    public void dfs(List<String> res, StringBuffer sb, int left, int right, int n) {
         if (left == n && right == n) {
             res.add(sb.toString());
             return;
         }
         if (left < n) {
             sb.append('(');
-            backtrack(res, sb, left + 1, right, n);
+            dfs(res, sb, left + 1, right, n);
             sb.deleteCharAt(sb.length() - 1);
         }
         if (right < left) {
             sb.append(')');
-            backtrack(res, sb, left, right + 1, n);
+            dfs(res, sb, left, right + 1, n);
             sb.deleteCharAt(sb.length() - 1);
         }
     }

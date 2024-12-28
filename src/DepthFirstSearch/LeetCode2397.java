@@ -1,4 +1,4 @@
-package Backtrack;
+package DepthFirstSearch;
 
 /**
  * @author lord
