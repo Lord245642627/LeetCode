@@ -17,11 +17,13 @@ public class LeetCode2826 {
             int idx = binarySearch(list, num + 1);
             if (idx == list.size()) {
                 list.add(num);
+            } else {
+                list.set(idx, num);
             }
-            list.set(idx, num);
         }
         return nums.size() - list.size();
     }
+
     private int binarySearch(List<Integer> list, int target) {
         int left = 0, right = list.size() - 1; // 闭区间 [left, right]
         while (left <= right) { // 区间不为空
