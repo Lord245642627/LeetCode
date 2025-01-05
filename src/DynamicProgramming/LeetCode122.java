@@ -6,17 +6,18 @@ package DynamicProgramming;
  * @description LeetCode122 买卖股票的最佳时机 II
  */
 public class LeetCode122 {
-    // 由于卖出的当天还可以买入，因此只要今天比昨天的价格高就卖出
     public int maxProfit(int[] prices) {
-        int res = 0;
-        int pre = prices[0];
+        // dp[0] 表示第 i 天结束时不持有股票情况下的最大利润
+        // dp[1] 表示第 i 天结束时持有股票情况下的最大利润
+        int[] dp = new int[2];
+        dp[0] = 0;
+        dp[1] = Integer.MIN_VALUE;
         for (int price : prices) {
-            if (price > pre) {
-                res += price - pre;
-            }
-            pre = price;
+            int temp = Math.max(dp[0], dp[1] + price);
+            dp[1] = Math.max(dp[1], dp[0] - price);
+            dp[0] = temp;
         }
-        return res;
+        return dp[0];
     }
 
     public static void main(String[] args) {
