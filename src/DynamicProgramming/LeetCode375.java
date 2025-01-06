@@ -17,8 +17,7 @@ public class LeetCode375 {
         int[][] dp = new int[n + 1][n + 1];
         for (int i = n - 1; i > 0; i--) {
             for (int j = i + 1; j <= n; j++) {
-                // 当 j=n 时，如果 k=j 则 k+1>n，此时 f[k][j] 会出现下标越界。为了避免出现下标越界，计算 f[i][j] 的方法是：首先令 f[i][j]=j+f[i][j−1]，然后遍历 i≤k<j 的每个 k，更新 f[i][j] 的值。
-                dp[i][j] = j + dp[i][j - 1];
+                dp[i][j] = Integer.MAX_VALUE;
                 for (int k = i; k < j; k++) {
                     dp[i][j] = Math.min(dp[i][j], Math.max(dp[i][k - 1], dp[k + 1][j]) + k);
                 }

@@ -6,9 +6,42 @@ import java.util.Arrays;
  * @author Lord Camelot
  * @date 2024/2/29
  * @description LeetCode132 分割回文串II
+ * 给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是回文串。
+ * 返回符合要求的 最少分割次数 。
  */
 public class LeetCode132 {
     public int minCut(String s) {
+        int n = s.length();
+        boolean[][] f = new boolean[n][n];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(f[i], true);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i + 1; j < n; j++) {
+                f[i][j] = s.charAt(i) == s.charAt(j) && f[i + 1][j - 1];
+            }
+        }
+
+        // f[i] = min(f[j]) + 1,其中 s[j + 1..i] 是一个回文串
+        int[] dp = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (f[0][i]) {
+                dp[i] = 0;
+            } else {
+                dp[i] = Integer.MAX_VALUE;
+                for (int j = 0; j < i; j++) {
+                    if (f[j + 1][i]) {
+                        dp[i] = Math.min(dp[i], dp[j]);
+                    }
+                }
+                dp[i]++;
+            }
+        }
+        return dp[n - 1];
+    }
+
+
+    public int minCut1(String s) {
         char[] str = s.toCharArray();
         int n = str.length;
         boolean[][] dp = isPalindrome(str);
