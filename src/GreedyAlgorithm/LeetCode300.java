@@ -2,7 +2,6 @@ package GreedyAlgorithm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,7 +14,6 @@ import java.util.List;
 public class LeetCode300 {
     public int lengthOfLIS(int[] nums) {
         List<Integer> list = new ArrayList<>();
-        int n = nums.length;
         for (int num : nums) {
             int idx = binarySearch(list, num);
             if (idx == list.size()) {
