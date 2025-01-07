@@ -23,6 +23,7 @@ public class LeetCode1771 {
             for (int j = i + 1; j < n; j++) {
                 if (s[i] == s[j]) {
                     dp[i][j] = dp[i + 1][j - 1] + 2;
+                    // 当 s[i]=s[j] 时，算出的 f[i][j] 一定包含 s[i] 和 s[j]，所以在此处更新答案。
                     if (i < word1.length() && j >= word1.length()) {
                         res = Math.max(res, dp[i][j]);
                     }
