@@ -14,7 +14,6 @@ package DynamicProgramming;
  */
 public class LeetCode1771 {
     public int longestPalindrome(String word1, String word2) {
-        // dp[i][j] = Math.max(dp[i + 1][j - 1] + 2, dp[])
         char[] s = (word1 + word2).toCharArray();
         int n = s.length;
         int[][] dp = new int[n][n];
