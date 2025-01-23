@@ -9,6 +9,7 @@ package DynamicProgramming;
  * 返回把所有石头合并成一堆的最低成本。如果无法合并成一堆，返回 -1 。
  */
 public class LeetCode1000 {
+    // TODO 理解
     public int mergeStones(int[] stones, int k) {
         int n = stones.length;
         if ((n - 1) % (k - 1) > 0) {
